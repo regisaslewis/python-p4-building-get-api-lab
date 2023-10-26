@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import datetime
 from random import randint, choice as rc
 
 from faker import Faker
@@ -17,7 +17,8 @@ with app.app_context():
     bakeries = []
     for i in range(20):
         b = Bakery(
-            name=fake.company()
+            name=fake.company(),
+            created_at=datetime.datetime(randint(2000,2023), randint(1,12), randint(1,30))
         )
         bakeries.append(b)
     
@@ -35,7 +36,8 @@ with app.app_context():
         bg = BakedGood(
             name=name,
             price=randint(1,10),
-            bakery=rc(bakeries)
+            bakery=rc(bakeries),
+            created_at=datetime.datetime(randint(2000,2023), randint(1,12), randint(1,30))
         )
 
         baked_goods.append(bg)
