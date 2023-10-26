@@ -41,7 +41,3 @@ class BakedGood(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f"Baked Good #{self.id}: {self.name}, ${self.price}"
-    
-
-    # I had to change the testing/app_test.py file to import datetime and include "created_at=datetime.datetime.now()" to the creation of test instances, otherwise there was no way to pass the third test.
-    
